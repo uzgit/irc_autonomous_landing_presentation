@@ -47,8 +47,8 @@
 \yeslogo
 
 \newif\ifpause
-\pausetrue
-%\pausefalse
+%\pausetrue
+\pausefalse
 \newcommand{\mypause}{\ifpause \pause \fi}
 
 %Information to be included in the title page:
@@ -61,6 +61,8 @@
 \begin{document}
 
 \maketitle
+
+\nologo
 
 \begin{frame}{Fiducial Markers}
 	\vspace*{\fill}
@@ -94,17 +96,37 @@
 	\vspace*{\fill}
 \end{frame}
 
+\begin{frame}{Orientation Ambiguity}
+	\begin{itemize}
+		\item Marker \emph{position} $\rightarrow$ accurate
+		\item Marker \emph{orientation} $\rightarrow$ ambiguous
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{The Downward-facing Camera Axiom}
 \end{frame}
 
-\begin{frame}{Orientation Ambiguity}
-\end{frame}
-
 \begin{frame}{Testing Platform: DJI Spark}
-	DJI Mobile SDK
+	\begin{columns}
+	\begin{column}{0.5\textwidth}
+	\begin{itemize}
+		\item Small quadcopter
+		\item Gimbal-mounted camera
+		\item DJI Mobile SDK
+	\end{itemize}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{example-image-a}
+	\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Testing Platform Limitations/Workarounds}
+	\begin{itemize}
+		\item App-style artchitecture
+		\item Export video to companion board
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Example Tracking Performance}
@@ -126,6 +148,20 @@
 \end{frame}
 
 \begin{frame}{Future Work}
+	\begin{itemize}
+		\item Use another drone platform
+		\begin{itemize}
+			\item Phantom, Mavic
+			\item More gimbal tilt range
+		\end{itemize}
+		\item Connect companion board directly to controller
+		\item Test 3 separate methods for each fiducial system:
+		\begin{itemize}
+			\item Raw/unfiltered marker pose
+			\item Filtered marker pose, e.g.~KF
+			\item Marker \emph{position} and gimbal \emph{orientation} for pose transforms
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Main Messages}
